@@ -26,7 +26,7 @@ permalink: /projects/
         <div class="projects-grid" id="projects-grid">
             {% for project in site.projects %}
             <article class="project-card" 
-                     data-categories="{% if project.categories %}{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}{% endif %}">
+                     data-categories="{% for cat in project.categories %}{{ cat | slugify }} {% endfor %}">
                 
                 <!-- Project Image/Preview -->
                 <div class="project-preview">
@@ -143,19 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
-    // Add fade-in animation to style if not present
-    if (!document.getElementById('project-animations')) {
-        const style = document.createElement('style');
-        style.id = 'project-animations';
-        style.innerHTML = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-    
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');
@@ -166,20 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Filter projects
             projectCards.forEach(card => {
-                // Reset animation
-                card.style.animation = 'none';
-                card.offsetHeight; /* trigger reflow */
-                
                 if (filter === 'all') {
                     card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.4s ease-out forwards';
                 } else {
-                    const categoriesStr = card.getAttribute('data-categories') || '';
-                    const categories = categoriesStr.trim().split(' ');
-                    
+                    const categories = card.getAttribute('data-categories');
                     if (categories.includes(filter)) {
                         card.style.display = 'block';
-                        card.style.animation = 'fadeIn 0.4s ease-out forwards';
                     } else {
                         card.style.display = 'none';
                     }

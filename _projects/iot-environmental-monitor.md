@@ -4,9 +4,10 @@ title: "IoT Environmental Monitoring Station"
 description: "A comprehensive IoT-based environmental monitoring system with wireless sensors, real-time data visualization, and automated alerts for greenhouse and outdoor applications."
 date: 2024-08-10
 categories: [IoT, Arduino, Mechatronics, Data Science]
-featured_image: "/assets/images/projects/iot-monitor/featured.jpg"
+featured_image: "/assets/images/projects/iot-monitor/sensor-monitoring.gif"
 github_url: "https://github.com/aojedao/iot-environmental-monitor"
 demo_url: "#"
+interactive_plot: true
 
 models:
   - file: "/assets/models/iot-monitor/sensor-housing.gltf"
@@ -761,7 +762,10 @@ components:
 gallery:
   - type: "image"
     file: "/assets/images/projects/iot-monitor/featured.jpg"
-    description: "IoT Environmental monitoring station"
+    description: "IoT Environmental monitoring station - Physical hardware setup"
+  - type: "image"
+    file: "/assets/images/projects/iot-monitor/sensor-monitoring.gif"
+    description: "Real-time sensor data visualization - Animated demonstration of live monitoring dashboard"
 ---
 
 ## Project Overview
